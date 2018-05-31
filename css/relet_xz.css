@@ -1,0 +1,25 @@
+.nx_qy{
+	position: absolute;
+	top: 50%;
+	margin-top: -0.2rem;
+	right: 0.4rem;
+	font-size: 0.4rem;
+	color: #333333;
+}
+.wt_btnbox{
+	margin: 2.666666rem auto 0;
+}
+.wt_tel a{
+	color: #2b70d8!important;
+}
+.right_xz{
+	position: absolute;
+	top: 50%;
+	margin-top: -0.213333rem;
+	right: 0.4rem;
+	color: #bbbbbb;
+}
+/*取消输入框右侧圆圈清除按钮*/
+.fwxx .mui-input-row .mui-input-clear~.mui-icon-clear,.qynx .mui-input-row .mui-input-clear~.mui-icon-clear{
+	display: none!important;
+}

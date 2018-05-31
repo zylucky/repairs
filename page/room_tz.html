@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>我要退租</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/lib/flexible.js"></script>
+		<script type="text/javascript" src="../js/lib/flexible_css.js" ></script>
+		<script type="text/javascript" src="../js/lib/jquery-1.10.2.min.js" ></script>
+		<link rel="stylesheet" type="text/css" href="../css/wt_house.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style_a_d.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/a_fringe.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/pickers/mui.dtpicker.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/pickers/mui.picker.min.css"/>
+		<script src="../js/mui.picker.min.js"></script>
+	</head>
+	<style type="text/css">
+		.right_xz{
+			position: absolute;
+			top: 50%;
+			margin-top: -0.213333rem;
+			right: 0.4rem;
+			color: #bbbbbb;
+		}
+		/*取消输入框右侧圆圈清除按钮*/
+		.fwxx .mui-input-row .mui-input-clear~.mui-icon-clear,.qynx .mui-input-row .mui-input-clear~.mui-icon-clear{
+			display: none!important;
+		}
+	</style>
+
+	<body>
+		<!-- <header class="mui-bar mui-bar-nav wd-header_p ipx_public_h1">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left a_d"></a>
+		    <h1 class="mui-title">我要退租</h1>
+		</header> -->
+		<div class="mui-content" style="bottom: 0;background: #f0f0f0;overflow: auto;">
+		    <div class="wt_ms">
+		    	<p>请留下您的房屋基本信息与联系方式，我们会及时与您联系，为您提供专属服务。</p>
+		    </div>
+		    <!--基本信息表单-->
+		    <div class="wt_jbxx">
+		    	<div class="mui-input-row wt_inpsty">
+		    	    <label>姓名</label>
+		    	    <input type="text" class="mui-input-clear" placeholder="请输入真实姓名" id="user_name">
+		    	</div>
+		    	<div class="mui-input-row wt_inpsty">
+		    	    <label>手机号</label>
+		    	    <input type="text" class="mui-input" placeholder="请输入手机号" onkeyup="this.value=this.value.replace(/\D/g,'')"  onafterpaste="this.value=this.value.replace(/\D/g,'')" autocomplete="off" maxlength="11"  id="tel">
+		    	    <span class="hqyzm">获取验证码</span>
+		    	</div>
+		    	<div class="mui-input-row wt_inpsty">
+		    	    <label>验证码</label>
+		    	    <input type="text" class="mui-input" placeholder="请输入验证码" autocomplete="off" onkeyup="this.value=this.value.replace(/\D/g,'')"  onafterpaste="this.value=this.value.replace(/\D/g,'')" maxlength="6"  id="hqyzm">
+		    	</div>
+		    </div>
+		    <!--现租房源-->
+		    <div class="wt_fwxx fwxx">
+		    	<div class="mui-input-row wt_inpsty">
+		    	    <label>现租房源</label>
+		    	    <input type="text" class="mui-input-clear" placeholder="请选择楼盘名称及所在区域" id="house_news" readonly>
+		    	</div>
+		    </div>
+		    <div class="wt_fwxx fwxx">
+		    	<div class="mui-input-row wt_inpsty">
+		    	    <label>退租时间</label>
+		    	    <input type="text" class="mui-input-clear" placeholder="请选择预计退租时间" id="house_date" readonly onclick="popdown()">
+		    	    <span class="mui-icon mui-icon-arrowright right_xz"></span>
+		    	</div>
+		    </div>
+		    <!--退租理由-->
+		    <div class="wt_fwms">
+		    	<p class="wt_fwms_bt">退租理由</p>
+		    	<p class="wt_texar">
+		    		<textarea name="" rows="" cols="" placeholder="请填写退租理由" id="house_ms"></textarea>
+		    		<span class="wt_texar_count"><i id="textareaCount">0</i>/200</span>
+		    	</p>
+		    </div>
+		    <!--底部-->
+		    <div class="wt_bottom">
+		    	<div class="wt_btnbox">
+		    		<button class="wt_btn btn">提交</button>
+		    	</div>
+		    	<div class="wt_yw">
+		    		<p class="wt_tip">如有任何疑问请拨打咨询电话</p>
+		    		<p class="wt_tel"><a href="tel:400-078-8800" class="a_d">400-078-8800</a></p>
+		    	</div>
+		    </div>
+		</div>
+		<script src="../js/lib/app_config.js"></script>
+		<script src="../js/lib/room_tz.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+	<script>
+		$(function(){  
+			//控制文本域输入字数
+	        $('textarea').keyup(function(event) {  
+	            var maxLength = 200;  
+	            var len = $('textarea').val().length;  
+	            $('#textareaCount').html(len);  
+	            if(parseInt($('#textareaCount').text()) > 200){  
+	                $('#textareaCount').html('200');  
+	                var res = $(this).val().substring(0,200);  
+	                $(this).val(res);  
+	            }  
+	        });  
+	    });  
+	    //处理弹出的时间日期框
+		var tatadatayear = new Date().getFullYear()-20;
+		var datayear = new Date().getFullYear()+50;
+	    var dtpicker = new mui.DtPicker({
+		    type: "date",//设置日历初始视图模式 
+		    beginDate: new Date(tatadatayear,01,01),//设置开始日期 
+		    endDate: new Date(datayear, 01, 01),//设置结束日期 
+		    labels: ['', '', '', '', ''],//设置默认标签区域提示语 
+		});
+		//日期的弹出框
+		function popdown(){
+			dtpicker.show(function(e) {
+				house_date = e;
+				$('#house_date').val(e);//显示
+				btnzt();
+			});
+		}
+	</script>
+</html>

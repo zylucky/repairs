@@ -1,0 +1,290 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>我要换房</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/lib/flexible.js"></script>
+		<script type="text/javascript" src="../js/lib/flexible_css.js" ></script>
+		<script type="text/javascript" src="../js/lib/jquery-1.10.2.min.js" ></script>
+		<link rel="stylesheet" type="text/css" href="../css/wt_house.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style_a_d.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/a_fringe.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/relet_xz.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/room_change.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/pickers/mui.dtpicker.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/pickers/mui.picker.min.css"/>
+	</head>
+	<style>
+		#area_zzc{
+			position: fixed;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			background: rgba(0,0,0,0.3);
+			display: none;
+		}
+		#area_xz{
+			position: fixed;
+			bottom: -5.333333rem;
+			left: 0;
+			right: 0;
+			height: 5.333333rem;
+			background: #fff;
+		}
+		.aerabtn_box{
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			height: 1.066666rem;
+			border-bottom: 1px solid #eeeeee;
+			padding: 0 0.266666rem;
+			font-size: 0.4rem;
+			color: #3c90ef;
+		}
+		.area_qybox{
+			display: flex;
+		}
+		.area_qybox p{
+			display: inline-block;
+			width: 50%;
+			height: 4.266666rem;
+			overflow: auto;
+		}
+		.area_qybox p span{
+			display: inline-block;
+			width: 100%;
+			height: 1.066666rem;
+			line-height: 1.066666rem;
+			font-size: 0.373333rem;
+			text-align: center;
+			color: #2d2d2d;
+		}
+		.area_qybox p span:nth-child(1){
+			color: #3c90ef;
+		}
+	</style>
+	<body>
+		<!-- <header class="mui-bar mui-bar-nav wd-header_p ipx_public_h1">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left a_d"></a>
+		    <h1 class="mui-title">我要换房</h1>
+		</header> -->
+		<div class="mui-content" style="bottom: 0;background: #f0f0f0;overflow: auto;">
+		    <div class="wt_ms">
+		    	<p>请留下您的房屋基本信息与联系方式，我们会及时与您联系，为您提供专属服务。</p>
+		    </div>
+		    <!--基本信息表单-->
+		    <div class="wt_jbxx">
+		    	<div class="mui-input-row wt_inpsty">
+		    	    <label>姓名</label>
+		    	    <input type="text" class="mui-input-clear" placeholder="请输入真实姓名" id="user_name">
+		    	</div>
+		    	<div class="mui-input-row wt_inpsty">
+		    	    <label>手机号</label>
+		    	    <input type="text" class="mui-input" placeholder="请输入手机号" onkeyup="this.value=this.value.replace(/\D/g,'')"  onafterpaste="this.value=this.value.replace(/\D/g,'')" autocomplete="off" maxlength="11"  id="tel">
+		    	    <span class="hqyzm">获取验证码</span>
+		    	</div>
+		    	<div class="mui-input-row wt_inpsty">
+		    	    <label>验证码</label>
+		    	    <input type="text" class="mui-input" placeholder="请输入验证码" autocomplete="off" onkeyup="this.value=this.value.replace(/\D/g,'')"  onafterpaste="this.value=this.value.replace(/\D/g,'')" maxlength="6"  id="hqyzm">
+		    	</div>
+		    </div>
+		    <!--现租房源-->
+		    <div class="wt_fwxx fwxx">
+		    	<div class="mui-input-row wt_inpsty">
+		    	    <label>现租房源</label>
+		    	    <input type="text" class="mui-input-clear" placeholder="请选择楼盘名称及所在区域" id="house_news" readonly>
+		    	</div>
+		    </div>
+			<!--目标信息-->
+		    <div class="wt_jbxx">
+		    	<div class="mui-input-row wt_inpsty" onclick="target_area()">
+		    	    <label>目标区域</label>
+		    	    <input type="text" class="mui-input-clear" placeholder="请选择换房目标区域" readonly="readonly" id="to_area">
+		    	    <span class="mui-icon mui-icon-arrowright right_xz"></span>
+		    	</div>
+		    	<div class="mui-input-row wt_inpsty">
+		    	    <label>目标楼盘</label>
+		    	    <input type="text" class="mui-input-clear" placeholder="请输入换房目标楼盘" id="to_lp">
+		    	</div>
+		    	<div class="mui-input-row wt_inpsty mbmj">
+		    	    <label>目标面积</label>
+		    	    <input type="text" class="mui-input" placeholder="请输入换房目标面积" id="to_mj">
+		    	    <span class="input_right">m²</span>
+		    	</div>
+		    	<div class="mui-input-row wt_inpsty zjys">
+		    	    <label>租金预算</label>
+		    	    <input type="text" class="mui-input" placeholder="请输入换房租金预算" id="qynx">
+		    	    <span class="input_right">元/月</span>
+		    	</div>
+		    	<div class="mui-input-row wt_inpsty" onclick="popdown()">
+		    	    <label>换房时间</label>
+		    	    <input type="text" class="mui-input-clear" placeholder="请选择换房时间" readonly="readonly" id="house_date">
+		    	    <span class="mui-icon mui-icon-arrowright right_xz"></span>
+		    	</div>
+		    </div>
+		    <!--是否需要注册-->
+		    <div class="wt_fwxx is_zhuce_box">
+		    	<div class="is_zhuce">是否需要注册</div>
+		    	<div class="mui-input-row mui-radio mui-left danxuan_zc">
+		    	    <label>是</label>
+		    	    <input name="radio" type="radio" checked  onclick="is_zc('1')">
+		    	</div>
+		    	<div class="mui-input-row mui-radio mui-left danxuan_zc">
+		    	    <label>否</label>
+		    	    <input name="radio" type="radio" checked  onclick="is_zc('2')">
+		    	</div>
+		    </div>
+		    
+		    
+		    <!--底部-->
+		    <div class="wt_bottom">
+		    	<div class="wt_btnbox">
+		    		<button class="wt_btn btn">提交</button>
+		    	</div>
+		    	<div class="wt_yw">
+		    		<p class="wt_tip">如有任何疑问请拨打咨询电话</p>
+		    		<p class="wt_tel"><a href="tel:400-078-8800" class="a_d">400-078-8800</a></p>
+		    	</div>
+		    </div>
+		    <!--区域选择-->
+		    <div id="area_zzc" onclick="on_zzc()">
+		    <!--遮罩层-->
+			    <div id="area_xz" onclick="on_pre(event)">
+			    	<p class="aerabtn_box">
+			    		<span id="area_qx">取消</span>
+			    		<span id="area_qd">确定</span>
+			    	</p>
+			    	<div class="area_qybox">
+			    		<p class="area_left"></p>
+			    		<p class="area_right"></p>
+			    	</div>
+			    </div>
+		    </div>
+		</div>
+		<script src="../js/lib/app_config.js"></script>
+		<script src="../js/mui.picker.min.js"></script>
+		<script src="../js/lib/room_change.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//处理弹出的时间日期框
+			var tatadatayear = new Date().getFullYear()-20;
+			var datayear = new Date().getFullYear()+50;
+		    var dtpicker = new mui.DtPicker({
+			    type: "date",//设置日历初始视图模式 
+			    beginDate: new Date(tatadatayear,01,01),//设置开始日期 
+			    endDate: new Date(datayear, 01, 01),//设置结束日期 
+			    labels: ['', '', '', '', ''],//设置默认标签区域提示语 
+			});
+			//日期的弹出框
+			function popdown(){
+				dtpicker.show(function(e) {
+					house_date = e;
+					$('#house_date').val(house_date);
+				});
+			}
+			//获取所有的区域
+			mui.ajax(Interface_url + '/yhcms/web/lpjbxx/getLpcity.do',{
+				data:{},
+				dataType:'json',
+				type:'post',
+				timeout:10000,
+				headers:{'Content-Type':'application/json'},	              
+				success:function(data){
+					if(data.success){
+						var xzqyData = data.data.xzqy;
+						var area_leftstr = '';
+						for (var i=0; i<xzqyData.length; i++) {
+							area_leftstr += '<span id="'+xzqyData[i].fdcode+'" onclick="clk('+xzqyData[i].fdcode+','+i+')">'+xzqyData[i].fdname+'</span>';
+						}
+						$('.area_left').html(area_leftstr);
+						all_sq('110101');//默认执行东城区
+					}else{
+						
+					}
+				},
+				error:function(xhr,type,errorThrown){
+					console.log(type);
+				}
+			});
+			//获取所有的商圈
+			function all_sq(id){
+				mui.ajax(Interface_url + '/yhcms/web/lpjbxx/getLpXzqyFq.do',{
+					data:{
+						"parameters":{
+							"district":id
+						},
+						"foreEndType":2,
+						"code":"300000010"
+					},
+					dataType:'json',
+					type:'post',
+					timeout:10000,
+					headers:{'Content-Type':'application/json'},       
+					success:function(data){
+						if(data.success){
+							var xzqy_Data = data.data.xzfq;
+							var xzqy_str = '';
+							for (var i=0; i<xzqy_Data.length; i++) {
+								xzqy_str += '<span onclick="clk2('+xzqy_Data[i].fdcode+','+i+')">'+xzqy_Data[i].fdname+'</span>';
+							}
+							$('.area_right').html(xzqy_str);
+						}else{
+						
+						}
+					},
+					error:function(xhr,type,errorThrown){
+						console.log(type);
+					}
+				});
+			}
+			function target_area(){//点击区域选择弹出选择框
+				$('#area_zzc').css('display','block');
+				$('#area_xz').animate({
+					'bottom':'0'
+				},'fast')
+			}
+			function on_zzc(){//点击遮罩隐藏
+				$('#area_zzc').css('display','none');
+				$('#area_xz').css('bottom','-5.333333rem');
+			}
+			function on_pre(){//阻止冒泡
+				event.stopPropagation();
+				return false;
+			}
+			var index1 = 0;
+			var index2 = 0;
+			function clk(fdcode,idx){
+//				alert(idx);
+				index1 = idx;
+				index2 = 0;
+				$('.area_left span').css('color','#2d2d2d');
+				$('.area_left span').eq(idx).css('color','#3c90ef');
+				all_sq(fdcode);
+			}
+			function clk2(fdcode,idx){
+//				alert(idx);
+				index2 = idx;
+				$('.area_right span').css('color','#2d2d2d');
+				$('.area_right span').eq(idx).css('color','#3c90ef');
+			}
+			$('#area_qx').click(function(){
+				$('#area_zzc').css('display','none');
+				$('#area_xz').css('bottom','-5.333333rem');
+			});
+			$('#area_qd').click(function(){
+				to_area = $('.area_left span').eq(index1).text() + '  ';
+				to_area += $('.area_right span').eq(index2).text();
+				$('#to_area').val(to_area);
+				$('#area_zzc').css('display','none');
+				$('#area_xz').css('bottom','-5.333333rem');
+			});
+			function is_zc(zcid){//是否注册   1是   2不限
+				to_zc = zcid;
+			}
+		</script>
+	</body>
+</html>

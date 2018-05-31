@@ -1,0 +1,224 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>管家服务</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/lib/flexible.js"></script>
+		<script type="text/javascript" src="../js/lib/flexible_css.js" ></script>
+		<script type="text/javascript" src="../js/lib/jquery-1.10.2.min.js" ></script>
+		<link rel="stylesheet" type="text/css" href="../css/style_a_d.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/a_fringe.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/repairs_bx.css"/>
+	</head>
+
+	<body>
+		<!-- <header class="mui-bar mui-bar-nav wd-header_p ipx_public_h1">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left a_d"></a>
+		    <h1 class="mui-title">管家服务</h1>
+		</header> -->
+		<div class="mui-content" style="bottom: 0;background: #ffffff;overflow: auto;">
+			<div class="gjfw_h">
+				<img src="../img/repairs_pic/gjfw_h.png" alt="" />
+			</div>
+			<!--合同变更-->
+			<div class="house_change">
+				<h1 class="house_tit">合同变更</h1>
+				<ul class="change_list">
+					<li id="xuzu">
+						<p>续租</p>
+						<p></p>
+					</li>
+					<li id="huanfang">
+						<p>换房</p>
+						<p></p>
+					</li>
+					<li id="tuifang">
+						<p>退租</p>
+						<p></p>
+					</li>
+				</ul>
+			</div>
+			<!--在线报修-->
+			<div class="house_change">
+				<h1 class="house_tit">在线报修</h1>
+				<ul class="online_bx">
+					<li id="online1">
+						<span>门窗维修</span>
+						<span></span>
+					</li>
+					<li id="online2">
+						<span>灯具电路</span>
+						<span></span>
+					</li>
+					<li id="online3">
+						<span>空调制冷</span>
+						<span></span>
+					</li>
+					<li  id="online4">
+						<span>水路管件</span>
+						<span></span>
+					</li>
+				</ul>
+			</div>
+			<!--物业对接-->
+			<div class="house_change">
+				<h1 class="house_tit">物业对接</h1>
+				<ul class="wy_docking" id="wydj">
+					<li>
+						<p>开具出门条</p>
+						<p></p>
+					</li>
+					<li>
+						<p>装修同意函</p>
+						<p></p>
+					</li>
+					<li>
+						<p>网络问题</p>
+						<p></p>
+					</li>
+				</ul>
+			</div>
+			<!--房屋凭证-->
+			<!-- <div class="house_change">
+				<h1 class="house_tit">房屋凭证</h1>
+				<ul class="wy_docking zxbx_nav" id="fwpz">
+					<li>
+						<p>大产权证</p>
+						<p></p>
+					</li>
+					<li>
+						<p>房本及业主</br>身份证原件</p>
+						<p></p>
+					</li>
+					<li>
+						<p>业主签字</p>
+						<p></p>
+					</li>
+				</ul>
+			</div> -->
+			<!--房屋费用-->
+			<div class="house_change">
+				<h1 class="house_tit">房屋费用</h1>
+				<ul class="online_bx fwdy_nav" id="fwfy">
+					<li>
+						<span>物业费</span>
+						<span></span>
+					</li>
+					<li>
+						<span>取暖费</span>
+						<span></span>
+					</li>
+					<li>
+						<span>遗留水电费</span>
+						<span></span>
+					</li>
+					<li>
+						<span>空调转换费</span>
+						<span></span>
+					</li>
+				</ul>
+			</div>
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		mui.init();
+		//续租
+		$('#xuzu').click(function(){
+			mui.openWindow({ 
+				url:'./relet_xz.html', //需要打开页面的url地址 
+				id:'relet_xz',  //需要打开页面的url页面id
+			})
+		});
+		//换房
+		$('#huanfang').click(function(){
+			mui.openWindow({ 
+				url:'./room_change.html', //需要打开页面的url地址 
+				id:'room_change',  //需要打开页面的url页面id
+			})
+		});
+		//退房
+		$('#tuifang').click(function(){
+			mui.openWindow({ 
+				url:'./room_tz.html', //需要打开页面的url地址 
+				id:'room_tz',  //需要打开页面的url页面id
+			})
+		});
+		//在线报修
+		$('#online1').click(function(){//门窗报修
+			mui.openWindow({ 
+				url:'./forms_zxbx.html', //需要打开页面的url地址 
+				id:'forms_zxbx',  //需要打开页面的url页面id
+			})
+		});
+		$('#online2').click(function(){//灯具电路
+			mui.openWindow({ 
+				url:'./forms_zxbx1.html', //需要打开页面的url地址 
+				id:'forms_zxbx1',  //需要打开页面的url页面id
+			})
+		});
+		$('#online3').click(function(){//空调制冷
+			mui.openWindow({ 
+				url:'./forms_zxbx2.html', //需要打开页面的url地址 
+				id:'forms_zxbx2',  //需要打开页面的url页面id
+			})
+		});
+		$('#online4').click(function(){//水路管件
+			mui.openWindow({ 
+				url:'./forms_zxbx3.html', //需要打开页面的url地址 
+				id:'forms_zxbx3',  //需要打开页面的url页面id
+			})
+		});
+		//物业对接
+		var wydj = $('#wydj li');
+		for(var i=0; i<wydj.length; i++){
+			(function(idx){
+				wydj[i].onclick = function(){
+					mui.openWindow({ 
+						url:'./forms_kjcmt.html?wydj_idx=' + idx, //需要打开页面的url地址 
+						id:'forms_kjcmt',  //需要打开页面的url页面id
+					})
+				}
+			})(i)
+		}
+		//房屋凭证
+		// var fwpz = $('#fwpz li');
+		// for(var i=0; i<fwpz.length; i++){
+		// 	(function(idx){
+		// 		fwpz[i].onclick = function(){
+		// 			mui.openWindow({ 
+		// 				url:'./forms_fwpz.html', //需要打开页面的url地址 
+		// 				id:'forms_fwpz',  //需要打开页面的url页面id
+		// 			})
+		// 			var main1 = plus.webview.getWebviewById('forms_fwpz');
+		// 			mui.fire(main1, "fwpz_to",{
+		// 			    fwpz_idx:idx
+		// 			})
+		// 		}
+		// 	})(i)
+		// }
+		//房屋费用
+		var fwfy = $('#fwfy li');
+		for(var i=0; i<fwfy.length; i++){
+			(function(idx){
+				fwfy[i].onclick = function(){
+					mui.openWindow({ 
+						url:'./forms_fwfy.html?fwfy_idx=' + idx, //需要打开页面的url地址 
+						id:'forms_fwfy',  //需要打开页面的url页面id
+					})
+				}
+			})(i)
+		}
+		function GetQueryString(name){
+		    var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+		    var r = window.location.search.substr(1).match(reg);
+		    if(r!=null)return  unescape(r[2]); return null;
+		}
+		var houseId = GetQueryString('houseId');
+		localStorage.setItem('houseId',houseId);
+	</script>
+</html>

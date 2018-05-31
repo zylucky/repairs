@@ -1,0 +1,16 @@
+/*头部返回箭头样式控制*/
+.a_d{text-decoration: none!important;}
+.wd-header_p{
+	height: 1.733333rem;
+	background: #181b20;
+	padding-top: 0.666666rem;
+	box-shadow: initial;
+	border-bottom: none!important;
+}
+.wd-header_p a{
+	color: #FFF;
+}
+.wd-header_p h1{
+	font-size: 0.453333rem;
+	color: #FFF;
+}
