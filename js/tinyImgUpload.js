@@ -108,6 +108,7 @@ var f1 = [];
 
 // 循环调用
 function imgupgrade() {
+    mui.showLoading("提交中..","div");
     for(var i in f2){
         var  imgArray=[];//通过逗号分割到新的编码
         var newImgbase = f2[i].split(",")[1];
@@ -135,6 +136,7 @@ function uploadImg(imgArray,idx) {
                 // alert(f2.length);
                 if(idx == f2.length - 1){
                     // alert('上传完毕');
+                    mui.hideLoading();
                     pic_tijiao();
                 }
                 // options.onSuccess(arr_src);
