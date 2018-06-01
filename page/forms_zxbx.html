@@ -19,6 +19,7 @@
 		<link rel="stylesheet" type="text/css" href="../css/pickers/mui.dtpicker.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/pickers/mui.picker.min.css"/>
 		<script src="../js/mui.picker.min.js"></script>
+		<link rel="stylesheet" href="../css/tinyImgUpload.css">
 	</head>
 	<style type="text/css">
 		.right_xz{
@@ -108,7 +109,7 @@
 		    		<span class="wt_texar_count"><i id="textareaCount">0</i>/200</span>
 		    	</p>
 		    </div>
-		    <div class="up_img">
+		    <div class="up_img" id="up_img">
 		    	<div class="showimg">
 		    		<div class="add_img_btn" id="add_img"></div>
             	</div>
@@ -120,7 +121,7 @@
 		    	</div>
 		    	<div class="wt_yw">
 		    		<p class="wt_tip">如有任何疑问请拨打咨询电话</p>
-		    		<p class="wt_tel"><a href="tel:400-078-8800" class="a_d">400-078-8800</a></p>
+		    		<p class="wt_tel"><a href="tel:400-078-8800" class="a_d" style="color: #007aff!important;">400-078-8800</a></p>
 		    	</div>
 		    </div>
 		</div>
@@ -196,7 +197,31 @@ if(localStorage.getItem("houseId")){
 	var houseId = localStorage.getItem("houseId");
 	cx_fwnews(houseId);
 }
+	var f2 = [];
+	var arr_src = [];//图片存储
 	</script>
-	<script src="../js/lib/upload_pic.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/tinyImgUpload.js"></script>
+	<script type="text/javascript">
+		var options = {
+		    path: Interface_url + '/yhcms/web/jcsj/uploadPic.do',
+		    onSuccess: function (res) {
+		        console.log(res);
+
+		        // 在点击的时候调用   在这里添加进数组
+		        f2=res;
+		        // alert(f1.length);
+
+
+		        // uploadImg(res);
+                // arr_src.push(img_url + JSON.parse(res).data);
+                // console.log(arr_src);
+		    },
+		    onFailure: function (res) {
+		        console.log(res.length);
+		    }
+		}
+
+		var upload = tinyImgUpload('#up_img', options);
+	</script>
 	<script src="../js/lib/zxbx.js" type="text/javascript" charset="utf-8"></script>
 </html>

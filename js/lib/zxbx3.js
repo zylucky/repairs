@@ -176,10 +176,10 @@ $('.wt_btn').click(function(){
 //验证并委托方法
 var clicktag = 0;
 function yz_house_wt(){
-	if(f1.length == 0){//如果没有图片不执行上传
+	if(f2.length == 0){//如果没有图片不执行上传
 		pic_tijiao();
 	}else{
-		imgupgrade();//上传图片		
+		imgupgrade(f2);//上传图片		
 	}
 	
 }
@@ -217,7 +217,8 @@ function pic_tijiao(){
 					success:function(data){
 						//服务器返回响应，根据响应结果，分析是否登录成功；
 						if(data.success){
-							f1.splice(0, f1.length);
+							f2.splice(0, f2.length);
+							arr_src.splice(0,arr_src.length);
 							mui.toast('已提交成功，我们将会尽快为您处理',{ duration:2000, type:'div' });
 							setTimeout(function(){
 								mui.back();								
