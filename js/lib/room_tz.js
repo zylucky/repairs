@@ -44,7 +44,7 @@ var arr = [];//全局数组
 				 //    picker.setData(arr);
 					// picker.pickers[0].setSelectedIndex(0);
 					$('#house_news').val(str);
-					house_news = str;
+					house_news = $('#house_news').val();
 					btnzt();
 				}else{
 						mui.alert(data.message);
