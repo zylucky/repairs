@@ -179,7 +179,7 @@ function yz_house_wt(){
 	if(f2.length == 0){//如果没有图片不执行上传
 		pic_tijiao();
 	}else{
-		imgupgrade(f2);//上传图片		
+		imgupgrade();//上传图片		
 	}
 	
 }
@@ -219,6 +219,7 @@ function pic_tijiao(){
 						if(data.success){
 							f2.splice(0, f2.length);
 							arr_src.splice(0,arr_src.length);
+							mui.hideLoading();
 							mui.toast('已提交成功，我们将会尽快为您处理',{ duration:2000, type:'div' });
 							setTimeout(function(){
 								mui.back();								

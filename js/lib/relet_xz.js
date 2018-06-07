@@ -5,7 +5,7 @@ var house_news = '';//房屋信息
 var house_year = '';//签约年限
 var arr = [];//全局数组
 function cx_fwnews(id){
-	  mui.ajax(url + '/yhcms/web/zdfyxx/getZdfygzxx.do',{
+	  mui.ajax(Interface_url + '/yhcms/web/zdfyxx/getZdfygzxx.do',{
 			data:{
 				"parameters":{"id":id}
 			},

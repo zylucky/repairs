@@ -24,14 +24,12 @@ function tinyImgUpload(ele, options) {
         return false;
     },false)
 
-var f1 = [];
-
+    var f1 = [];
     // 预览图片
     //处理input选择的图片
     function handleFileSelect(evt) {
         var files = evt.target.files;
-        console.log(files)
-
+        
         for(var i=0, f; f=files[i];i++){
             // 过滤掉非图片类型文件
             if(!f.type.match('image.*')){
@@ -127,7 +125,6 @@ function uploadImg(imgArray,idx) {
       "foreEndType":2,
       "code":"300000084"
     }
-    console.log(datas);
     xhr.onreadystatechange = function (e) {
         if(xhr.readyState == 4){
             if(xhr.status == 200){

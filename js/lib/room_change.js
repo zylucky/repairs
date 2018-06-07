@@ -10,7 +10,7 @@ var house_date = null;//换房时间
 var to_zc = null;//是否注册
 var arr = [];//全局数组
    function cx_fwnews(id){
-	  mui.ajax(url + '/yhcms/web/zdfyxx/getZdfygzxx.do',{
+	  mui.ajax(Interface_url + '/yhcms/web/zdfyxx/getZdfygzxx.do',{
 			data:{
 				"parameters":{"id":id}
 			},

@@ -6,7 +6,7 @@ var house_ms = '';//退租理由
 var house_date = null;//退租时间
 var arr = [];//全局数组
  function cx_fwnews(id){
-	  mui.ajax(url + '/yhcms/web/zdfyxx/getZdfygzxx.do',{
+	  mui.ajax(Interface_url + '/yhcms/web/zdfyxx/getZdfygzxx.do',{
 			data:{
 				"parameters":{"id":id}
 			},

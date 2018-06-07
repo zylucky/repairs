@@ -10,7 +10,7 @@ var arr = [];//全局数组
  //  });
   //根据用户id查询当前登陆用户
   function cx_fwnews(id){
-	  mui.ajax(url + '/yhcms/web/zdfyxx/getZdfygzxx.do',{
+	  mui.ajax(Interface_url + '/yhcms/web/zdfyxx/getZdfygzxx.do',{
 			data:{
 				"parameters":{"id":id}
 			},
