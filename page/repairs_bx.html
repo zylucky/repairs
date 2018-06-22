@@ -14,12 +14,48 @@
 		<link rel="stylesheet" type="text/css" href="../css/a_fringe.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/repairs_bx.css"/>
 	</head>
-
+	<style type="text/css">
+		.large{position: absolute;top:1.413333rem;bottom: 0rem;left: 0rem;right: 0rem;}
+		.fdingdediv{position: fixed;height: 1.413333rem;width: 100%;display: flex;background-color: #ffffff;}
+		.chahao{width: 1.28rem;height:100%;display: flex;align-items: center;justify-content: center;}
+		.chahao span{width: 0.426666rem;height: 0.426666rem;display: flex;background: url(../img/xdetupbiao.png) no-repeat;background-size: 100% 100%;}
+		.imgdubiao{width: 0.946666rem;display: flex;align-items: center;}
+		.imgdubiao span{width: 100%;display: flex;height: 0.946666rem;background: url(../img/appimg.png) no-repeat;background-size: 100% 100%;}
+		.zhabengs{height: 100%;width: 4rem;margin-left: 0.413333rem;display: flex;align-items: center;}
+		.zhabengs span{width: 100%;display: flex;height: 0.946666rem;flex-wrap: wrap;align-items: center;}
+		.ysapp{font-style: normal;font-size: 0.346666rem;width: 100%;}
+		.ziticolor{color: #333333;}
+		.gengduozitcolir{color: #9a9a9a;}
+		.anzhuoyy{margin-left: 0.853333rem;width: 2.173333rem;display: flex;align-items: center;}
+		.anzhuoyydeyangs{width: 100%;display: flex;height: 0.946666rem;background-color: #2b70d8;border-radius: 5px;align-items: center;justify-content: center;color: #fefefe;font-size: 0.346666rem;}
+		.anhuo{display: none;}
+		.iosshouji{display: none;}
+		.mui-bar{padding: 0;}
+		.mui-content{position: relative;top: 1.413333rem;}
+	</style>
 	<body>
-		<!-- <header class="mui-bar mui-bar-nav wd-header_p ipx_public_h1">
-		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left a_d"></a>
-		    <h1 class="mui-title">管家服务</h1>
-		</header> -->
+		<header class="mui-bar">
+		    <div class="fdingdediv">
+				<p class="chahao">
+					<span onclick="chaohaodianjishi()"></span>
+				</p>
+				<p class="imgdubiao">
+					<span></span>
+				</p>
+				<p class="zhabengs">
+					<span>
+						<i class="ysapp ziticolor" style="font-weight: 700;">找办公室上亮狮APP</i>
+						<i class="ysapp gengduozitcolir" style="font-size: 0.32rem;">更多服务等你来</i>
+					</span>
+				</p>
+				<a class="anzhuoyy anhuo" href="http://a.app.qq.com/o/simple.jsp?pkgname=com.youshispace.YSKJ&from=singlemessage">
+					<span class="anzhuoyydeyangs" onclick="anhzuangyying()">安装应用</span>
+				</a>
+				<a class="anzhuoyy iosshouji" href="https://www.pgyer.com/IWef">
+					<span class="anzhuoyydeyangs" onclick="anhzuangyying()">安装应用</span>
+				</a>
+		    </div>
+		</header>
 		<div class="mui-content" style="bottom: 0;background: #ffffff;overflow: auto;">
 			<div class="gjfw_h">
 				<img src="../img/repairs_pic/gjfw_h.png" alt="" />
@@ -220,5 +256,22 @@
 		}
 		var houseId = GetQueryString('houseId');
 		localStorage.setItem('houseId',houseId);
+
+		function chaohaodianjishi(){
+			$(".fdingdediv").css('display','none');
+			$(".mui-bar").css('display','none');
+			$(".mui-content").css('top','0rem');
+		}
+		$(function () {
+		    var u = navigator.userAgent, app = navigator.appVersion;
+		    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //g
+		    var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+		    if (isAndroid) {
+		        $('.anhuo').css('display','flex');
+		    }
+		    if (isIOS) {
+		        $('.iosshouji').css('display','flex');
+		    }
+		});
 	</script>
 </html>
