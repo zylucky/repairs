@@ -9,6 +9,7 @@ var house_year = '';//租金预算
 var house_date = null;//换房时间
 var to_zc = null;//是否注册
 var arr = [];//全局数组
+var fyid = '';
    function cx_fwnews(id){
 	  mui.ajax(Interface_url + '/yhcms/web/zdfyxx/getZdfygzxx.do',{
 			data:{
@@ -62,6 +63,7 @@ var arr = [];//全局数组
   }
 if(localStorage.getItem("houseId")){
 	var houseId = localStorage.getItem("houseId");
+	fyid = houseId;
 	cx_fwnews(houseId);
 }
 
@@ -268,7 +270,8 @@ function yz_house_wt(){
 						"changeZuJin":house_year,//租金预算
 						"changeTime": house_date,//换租时间
 						"isZhuce": to_zc,//是否注册
-						"repairHouse":house_news
+						"repairHouse":house_news,
+						"fyid":fyid
 					},
 					dataType:'json',//服务器返回json格式数据
 					type:'post',//HTTP请求类型

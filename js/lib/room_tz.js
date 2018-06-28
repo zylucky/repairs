@@ -5,6 +5,7 @@ var house_news = '';//现租房源
 var house_ms = '';//退租理由
 var house_date = null;//退租时间
 var arr = [];//全局数组
+var fyid = '';
  function cx_fwnews(id){
 	  mui.ajax(Interface_url + '/yhcms/web/zdfyxx/getZdfygzxx.do',{
 			data:{
@@ -58,6 +59,7 @@ var arr = [];//全局数组
   }
 if(localStorage.getItem("houseId")){
 	var houseId = localStorage.getItem("houseId");
+	fyid = houseId;
 	cx_fwnews(houseId);
 }
 //用户姓名输入
@@ -260,7 +262,8 @@ function yz_house_wt(){
 						'phone': telnumber,
 						'memo': house_ms,
 						"repairHouse":house_news,
-						'changeTime': house_date
+						'changeTime': house_date,
+						"fyid":fyid
 					},
 					dataType:'json',//服务器返回json格式数据
 					type:'post',//HTTP请求类型

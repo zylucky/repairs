@@ -199,6 +199,7 @@
 	        });  
 	  }); 
 	  var arr = [];//全局数组
+	  var fyid = '';
 	   function cx_fwnews(id){
 	  mui.ajax(Interface_url + '/yhcms/web/zdfyxx/getZdfygzxx.do',{
 			data:{
@@ -252,6 +253,7 @@
   }
 if(localStorage.getItem("houseId")){
 	var houseId = localStorage.getItem("houseId");
+	fyid = houseId;
 	cx_fwnews(houseId);
 }
 	var f2 = [];

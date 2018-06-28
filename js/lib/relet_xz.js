@@ -4,6 +4,7 @@ var yzm = '';//验证码
 var house_news = '';//房屋信息
 var house_year = '';//签约年限
 var arr = [];//全局数组
+var fyid = '';//房源id
 function cx_fwnews(id){
 	  mui.ajax(Interface_url + '/yhcms/web/zdfyxx/getZdfygzxx.do',{
 			data:{
@@ -57,6 +58,7 @@ function cx_fwnews(id){
   }
 if(localStorage.getItem("houseId")){
 	var houseId = localStorage.getItem("houseId");
+	fyid = houseId;
 	cx_fwnews(houseId);
 }
 //用户姓名输入
@@ -269,7 +271,8 @@ function yz_house_wt(){
 						"name":user_name,
 						"phone":tel,
 						"renewalYears":house_year,//签约年限
-						"repairHouse":house_news
+						"repairHouse":house_news,
+						"fyid":fyid
 					},
 					dataType:'json',//服务器返回json格式数据
 					type:'post',//HTTP请求类型

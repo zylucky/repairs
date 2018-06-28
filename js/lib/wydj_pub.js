@@ -5,6 +5,7 @@ var house_news = '';//房屋信息
 var house_ms = '';//房屋描述
 var wydj_type = '';//物业对接类型
 var arr = [];//全局数组
+var fyid = '';
  //  var picker = new mui.PopPicker({
 	// layer: 1
  //  });
@@ -62,6 +63,7 @@ var arr = [];//全局数组
   }
 if(localStorage.getItem("houseId")){
 	var houseId = localStorage.getItem("houseId");
+	fyid = houseId;
 	cx_fwnews(houseId);
 }
 
@@ -272,7 +274,8 @@ function yz_house_wt(){
 						'name': user_name,
 						'phone': telnumber,
 						'memo': house_ms,
-						'repairHouse': house_news
+						'repairHouse': house_news,
+						"fyid":fyid
 					},
 					dataType:'json',//服务器返回json格式数据
 					type:'post',//HTTP请求类型

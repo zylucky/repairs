@@ -208,7 +208,8 @@ function pic_tijiao(){
 						'phone': telnumber,
 						'memo': house_ms,
 						'repairHouse': house_news,
-						'pic': arr_src.join(",").split(',').join(";")
+						'pic': arr_src.join(",").split(',').join(";"),
+						"fyid":fyid
 					},
 					dataType:'json',//服务器返回json格式数据
 					type:'post',//HTTP请求类型
