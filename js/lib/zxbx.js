@@ -107,7 +107,7 @@ function createcookie(){
 }
 //发送验证码方法
 function sendyzm(){
-	mui.ajax(Interface_url + '/yskjApp/appYskj/V1/getServiceCode.do',{
+	mui.ajax(url + '/yskjApp/appYskj/V1/getServiceCode.do',{
 		data:{
 			"phone":telnumber,
 			"cookie":createcookie()
